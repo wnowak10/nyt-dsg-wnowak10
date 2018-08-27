@@ -8,16 +8,18 @@
 	$ pip install -r requirements.txt
 
 (Using pre trained model and preprocessed data:)
+
 	$ python -W ignore mk.py 
 
 OR 
 
 (Preprocess data and train:)
+
 	$ python -W ignore mk.py --preprocess_data --do_train
 
 ## To make API calls:
 
-$ curl  -H "Content-Type: applicatiline": "Parenting Lessons From a Partial Eclipse", "summary": "summary_content", "worker_id": 1 }' http://localhost:8080
+```$ curl  -H "Content-Type: applicatiline": "Parenting Lessons From a Partial Eclipse", "summary": "summary_content", "worker_id": 1 }' http://localhost:8080```
 
 ## Please provide a brief writeup of your approach and decision making process regarding subjective design choices you made during the analysis, along with instructions for executing the program if necessary.
 
