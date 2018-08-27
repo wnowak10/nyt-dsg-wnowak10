@@ -22,10 +22,8 @@
 from __future__ import print_function
 
 import argparse
-# import serve
 import sys
 import pickle
-# import tree
 
 FLAGS = None
 
@@ -49,7 +47,7 @@ def get_data():
 
       print('Data loaded.')
     except FileNotFoundError:
-      print('You don\'t seem to have access to all the training and test data. Please recall with `--preprocess_data True`.')
+      print('You don\'t seem to have access to all the training and test data. Please recall with `--preprocess_data`.')
       sys.exit()
     return x_train, x_test, y_train, y_test, docs_dict, model_tfidf, tfidf_emb_vecs
 
@@ -79,15 +77,6 @@ def train_or_load_model():
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
-# def get_docs_dict():
-#   if FLAGS.refresh_docs_dict:
-#     from data_prep import docs_dict
-#     return docs_dict
-#   else:
-#     print('Loading pickled docs_dict.')
-#     docs_dict = pickle.load( open( "docs_dict.pkl", "rb" ) )
-#     print('Loaded pickled docs_dict.')
-#     return docs_dict
 
 def print_hamming_loss(model, x_test):
     """
@@ -97,11 +86,6 @@ def print_hamming_loss(model, x_test):
 
     Simple, but must be considered against a naive baseline.
     """
-    # if FLAGS.preprocess_data:
-    #     from data_prep import x_train, x_test, y_train, y_test
-    # else:
-    #     x_test = pickle.load( open( "x_test.pkl", "rb" ) )
-    #     y_test = pickle.load( open( "y_test.pkl", "rb" ) )
     y_pred = model.predict(x_test)
     from sklearn.metrics import hamming_loss
     if FLAGS.verbose:
@@ -121,13 +105,6 @@ if __name__ == '__main__':
       help="""\
       Path to pickled prediction model.
       """)
-
-    # parser.add_argument(
-    #   '--refresh_docs_dict',
-    #   default=False,
-    #   action ="store_true",
-    #   help="""\
-    #   """)
 
     parser.add_argument(
       '--do_train',
