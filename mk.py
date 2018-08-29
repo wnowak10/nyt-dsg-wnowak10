@@ -13,7 +13,6 @@
 
     1. Print to stderr or a file, an  appropriate quantitative estimate 
     of the model's ability to correctly predict emotional reactions.
-    
 """
 
 # ______________________________________________________________________________
